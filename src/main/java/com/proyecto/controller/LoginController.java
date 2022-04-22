@@ -27,9 +27,6 @@ public class LoginController {
 			return "sistemaLogin";
 		} else {
 			session.setAttribute("objUsuario", usuario);
-			//session.setAttribute("objMenus", menus);
-			//session.setAttribute("objRoles", roles);
-
 			return "sistemaInicio";
 		}
 	}
