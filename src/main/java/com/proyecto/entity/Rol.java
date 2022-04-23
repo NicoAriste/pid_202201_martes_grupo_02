@@ -1,5 +1,6 @@
 package com.proyecto.entity;
 
+
 import java.util.Date;
 
 import javax.persistence.Entity;

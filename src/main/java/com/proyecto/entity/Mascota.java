@@ -19,7 +19,6 @@ import lombok.Setter;
 @Setter
 @Entity
 @Table(name = "tb_mascota")
-
 public class Mascota {
 
 	@Id

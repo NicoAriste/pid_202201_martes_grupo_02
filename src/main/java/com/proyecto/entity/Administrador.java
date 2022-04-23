@@ -29,6 +29,6 @@ public class Administrador {
 	private String login;
 	private String clave;
 	private String dni_admin;
-	private String varchar;
+	private String telf_admin;
 	
 }

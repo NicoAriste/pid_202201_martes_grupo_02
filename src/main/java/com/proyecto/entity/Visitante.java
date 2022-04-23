@@ -24,7 +24,6 @@ import lombok.Setter;
 @Setter
 @Entity
 @Table(name = "tb_visitante")
-
 public class Visitante {
 
 	@Id

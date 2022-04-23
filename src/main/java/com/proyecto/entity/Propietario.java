@@ -20,12 +20,10 @@ import lombok.Getter;
 import lombok.Setter;
 
 
-@Entity
-@Table(name= "tb_propietario")
 @Getter
 @Setter
-
-
+@Entity
+@Table(name= "tb_propietario")
 public class Propietario {
 
 	@Id
