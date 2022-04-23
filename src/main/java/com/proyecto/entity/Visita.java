@@ -1,4 +1,5 @@
 package com.proyecto.entity;
+
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -12,38 +13,44 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import org.springframework.format.annotation.DateTimeFormat;
-
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.Getter;
 import lombok.Setter;
 
 
-@Entity
-@Table(name= "tb_propietario")
 @Getter
 @Setter
+@Entity
+@Table(name = "tb_visita")
 
-
-public class Propietario {
+public class Visita {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int cod_propietario;
-	private String nom_propietario;
-	private String dni_propietario;
-	private int edad_propietario;
-	private String correo_propietario;
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private int cod_visita;
+	
 	@Temporal(TemporalType.DATE)
-	private Date fecha_incio_contrato;
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+	private Date fecha_reg_visita;
+	
 	@Temporal(TemporalType.DATE)
-	private Date fecha_fin_contrato;
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+	private Date fecha_llegada_visita;
+	
+	@Temporal(TemporalType.DATE)
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+	private Date fecha_salida_visita;
+	
 	
 	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "cod_usuario")
-	private Usuario usuario;
+	@JoinColumn(name = "cod_visitante")
+	private Visitante visitante;
+	
+	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "cod_propietario")
+	private Propietario propietario;
 }
