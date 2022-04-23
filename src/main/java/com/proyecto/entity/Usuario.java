@@ -21,6 +21,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 
+
 @Entity
 @Table(name= "tb_usuario")
 @Getter
