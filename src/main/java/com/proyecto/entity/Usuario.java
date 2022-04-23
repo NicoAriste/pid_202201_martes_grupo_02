@@ -1,4 +1,5 @@
 package com.proyecto.entity;
+
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -19,30 +20,34 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.Setter;
 
+
 @Entity
-@Table(name= "tb_propietario")
+@Table(name= "tb_usuario")
 @Getter
 @Setter
 
-
-public class Propietario {
+public class Usuario {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int cod_propietario;
-	private String nom_propietario;
-	private String dni_propietario;
-	private int edad_propietario;
-	private String correo_propietario;
+	private int cod_usuario;
+	private String nom_usuario;
+	private String dni_usuario;
+	private String login;
+	private String clave;
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Temporal(TemporalType.DATE)
-	private Date fecha_incio_contrato;
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	@Temporal(TemporalType.DATE)
-	private Date fecha_fin_contrato;
+	private Date fecha_registro_usuario;
+	private int estado;
+
 	
 	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "cod_usuario")
-	private Usuario usuario;
+	@JoinColumn(name = "cod_departamento")
+	private Departamento departamento;
+	
+	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "cod_mascota")
+	private Mascota mascota;
 }
