@@ -19,6 +19,7 @@ public class VisitaServiceImpl implements VisitaService{
 		return repository.findAll();
 	}
 
+	
 	@Override
 	public Visita insertaActualizaVisita(Visita obj) {
 		return repository.save(obj);

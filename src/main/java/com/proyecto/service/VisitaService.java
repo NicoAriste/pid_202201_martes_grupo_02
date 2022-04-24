@@ -8,5 +8,6 @@ public interface VisitaService {
 
 	public abstract List<Visita> listaVisita();
 	
+	
 	public abstract Visita insertaActualizaVisita(Visita obj);
 }
