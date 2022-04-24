@@ -33,9 +33,11 @@ public class Propietario {
 	private String dni_propietario;
 	private int edad_propietario;
 	private String correo_propietario;
+	
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Temporal(TemporalType.DATE)
 	private Date fecha_incio_contrato;
+	
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Temporal(TemporalType.DATE)
 	private Date fecha_fin_contrato;
