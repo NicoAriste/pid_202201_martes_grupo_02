@@ -16,6 +16,7 @@ import javax.persistence.TemporalType;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -23,34 +24,28 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "tb_departamento")
+@Table(name = "tb_boleta")
 
-	public class Departamento {
+public class Boleta {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int cod_departamento;
-	private int num_departamento;
-	private int piso_departamento;
-	private int estado;
-	private String condiciones_departamento;
-	private int metros_cuadrados;
-	private int tipo_departamento;
-	
+	private int cod_boleta;
+	private String servicio_boleta;
+	private double monto_boleta;
+	private double mes_boleta;
+
+	@Temporal(TemporalType.DATE)
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+	private Date fecha_reg_boleta;
+
+	@Temporal(TemporalType.TIMESTAMP)
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd hh:mm:ss")
+	private Date fecha_venc_boleta;
+
 
 	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "cod_edificio")
-	private Edificio edificio;
-	
-	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "cod_propietario")
-	private Propietario propietario;
-	
-	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "cod_admin")
-	private Administrador administrador;
-	
+	@JoinColumn(name = "cod_usuario")
+	private Usuario usuario;
 }

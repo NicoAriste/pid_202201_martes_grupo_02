@@ -18,15 +18,15 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "tb_mascota")
-public class Mascota {
+@Table(name = "tb_tipo_indicente")
+
+public class TipodeIncidente {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int cod_mascota;
-	private String nom_mascota;
-	private String sexo_mascota;
-	private String raza_mascota;
+	private int cod_tipoinc;
+	private String desc_tipoinc;
+	private int estado;
 	
-	
+
 }

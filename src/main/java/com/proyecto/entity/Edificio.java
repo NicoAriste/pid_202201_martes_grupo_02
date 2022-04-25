@@ -1,5 +1,4 @@
 package com.proyecto.entity;
-import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -9,10 +8,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-
-import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -23,25 +18,22 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name= "tb_propietario")
-public class Propietario {
+@Table(name = "tb_edificio")
+
+public class Edificio {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int cod_propietario;
-	private String nom_propietario;
-	private String dni_propietario;
-	private int edad_propietario;
-	private String correo_propietario;
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	@Temporal(TemporalType.DATE)
-	private Date fecha_incio_contrato;
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	@Temporal(TemporalType.DATE)
-	private Date fecha_fin_contrato;
+	private int cod_edificio;
+	private String nom_edificio;
+	private int numero_edificio;
+	private String nombre_condominio;
 	
+
 	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "cod_usuario")
 	private Usuario usuario;
+	
+	
 }

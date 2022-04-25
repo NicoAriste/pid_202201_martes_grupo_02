@@ -23,34 +23,21 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "tb_departamento")
+@Table(name = "tb_pago")
 
-	public class Departamento {
+public class Pago {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int cod_departamento;
-	private int num_departamento;
-	private int piso_departamento;
-	private int estado;
-	private String condiciones_departamento;
-	private int metros_cuadrados;
-	private int tipo_departamento;
+	private int cod_pago;
+	
+	@Temporal(TemporalType.DATE)
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+	private Date fecha_pago;
 	
 
 	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "cod_edificio")
-	private Edificio edificio;
-	
-	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "cod_propietario")
-	private Propietario propietario;
-	
-	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "cod_admin")
-	private Administrador administrador;
-	
+	@JoinColumn(name = "cod_boleta")
+	private Boleta boleta;
 }
