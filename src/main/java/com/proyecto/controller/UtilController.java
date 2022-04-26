@@ -23,7 +23,6 @@ public class UtilController {
 	@Autowired
 	private VisitanteService visitanteService;
 	
-	
 	@GetMapping("/listaVisitante")
 	@ResponseBody
 	public ResponseEntity<List<Visitante>> listaVisitante() {
