@@ -21,20 +21,19 @@ import com.proyecto.service.DepartamentoService;
 @CrossOrigin(origins = "http://localhost:4200")
 
 public class DepartamentoController {
-	
-	
+
 	@Autowired
-	private DepartamentoService  departamentoService;
-	
+	private DepartamentoService departamentoService;
+
 	@PostMapping
 	@ResponseBody
-	public  ResponseEntity<Map<String, Object>> insertaDepartamento(@RequestBody Departamento obj){
+	public ResponseEntity<Map<String, Object>> insertaDepartamento(@RequestBody Departamento obj) {
 		Map<String, Object> salida = new HashMap<>();
 		try {
 			Departamento objSalida = departamentoService.insertaActualizaDepartamento(obj);
 			if (objSalida == null) {
 				salida.put("mensaje", "No se registró, consulte con el administrador.");
-			}else {
+			} else {
 				salida.put("mensaje", "Se registró correctamente.");
 			}
 		} catch (Exception e) {
@@ -43,14 +42,12 @@ public class DepartamentoController {
 		}
 		return ResponseEntity.ok(salida);
 	}
-	
+
 	@GetMapping
 	@ResponseBody
-	public ResponseEntity<List<Departamento>> obtenerListDepartamento(){
+	public ResponseEntity<List<Departamento>> obtenerListDepartamento() {
 		List<Departamento> lista = departamentoService.listaDepartament();
 		return ResponseEntity.ok(lista);
 	}
-	
-	
 
 }
