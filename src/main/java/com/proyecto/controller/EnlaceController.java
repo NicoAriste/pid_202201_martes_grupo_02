@@ -11,7 +11,7 @@ public class EnlaceController {
 	@RequestMapping("/")
 	public String verLogin() {	return "sistemaLogin";  }
 	
-	@RequestMapping("/verIntranetHome")
+	@RequestMapping("/verSistemaInicio")
 	public String verIntranetHome() {	return "sistemaInicio";  }
 
 }
