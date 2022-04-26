@@ -1,5 +1,9 @@
 package com.proyecto.repository;
 
-public interface PropietarioRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.proyecto.entity.Propietario;
+
+public interface PropietarioRepository extends JpaRepository<Propietario, Integer> {
 
 }

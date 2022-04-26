@@ -15,34 +15,36 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.proyecto.entity.Propietario;
-import com.proyecto.service.PropietarioService;
+import com.proyecto.entity.Visita;
+import com.proyecto.service.VisitaService;
 import com.proyecto.util.AppSettings;
 
 @RestController
-@RequestMapping("/url/propietario")
+@RequestMapping("/url/visita")
 @CrossOrigin(origins = AppSettings.URL_CROSS_ORIGIN)
 
-public class PropietarioController {
-	
+public class VisistaController {
+
 	@Autowired
-	private PropietarioService propietarioService;
+	private VisitaService visitaService;
 	
 	@GetMapping
 	@ResponseBody
-	public ResponseEntity<List<Propietario>> listaPropietario() {
-		List<Propietario> lista = propietarioService.listaPropietario();
+	public ResponseEntity<List<Visita>> listaVisita() {
+		List<Visita> lista = visitaService.listaVisita();
 		return ResponseEntity.ok(lista);
 	}
 	
 	@PostMapping
 	@ResponseBody
-	public ResponseEntity<Map<String, Object>> insertaPropietario(@RequestBody Propietario obj) {
+	public ResponseEntity<Map<String, Object>> insertaVisita(@RequestBody Visita obj) {
 		Map<String, Object> salida = new HashMap<>();
 		try {
-			obj.setFecha_incio_contrato(new Date());
-			obj.setFecha_fin_contrato(new Date());
-			Propietario objSalida = propietarioService.insertaActualizaPropietario(obj);
+			obj.setFecha_reg_visita(new Date());
+			obj.setFecha_llegada_visita(new Date());
+			obj.setFecha_salida_visita(new Date());
+			
+			Visita objSalida = visitaService.insertaActualizaVisita(obj);
 			if (objSalida == null) {
 				salida.put("mensaje", AppSettings.MENSAJE_REG_ERROR);
 			} else {
@@ -55,5 +57,6 @@ public class PropietarioController {
 		return ResponseEntity.ok(salida);
 	}
 
-
+	
+	
 }
