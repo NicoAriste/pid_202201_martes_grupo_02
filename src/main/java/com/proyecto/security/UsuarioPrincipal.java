@@ -39,7 +39,8 @@ public class UsuarioPrincipal implements UserDetails {
 			authorities.add(new SimpleGrantedAuthority(x.getNombre()));
 		}
 		nombreCompleto = usuario.getNom_usuario();
-		return new UsuarioPrincipal(usuario.getCod_usuario(), usuario.getLogin(), usuario.getClave(), usuario.getNom_usuario(), authorities);
+		return new UsuarioPrincipal(usuario.getCod_usuario(), usuario.getLogin(), usuario.getClave(),
+				usuario.getNom_usuario(), authorities);
 	}
 
 	@Override
@@ -76,7 +77,6 @@ public class UsuarioPrincipal implements UserDetails {
 	public boolean isEnabled() {
 		return true;
 	}
-	
 
 	public String getNombreCompleto() {
 		return nombreCompleto;
