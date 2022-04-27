@@ -35,7 +35,7 @@ public class PropietarioController {
 		return ResponseEntity.ok(lista);
 	}
 	
-	@PostMapping
+	@PostMapping("/registrarPropietario")
 	@ResponseBody
 	public ResponseEntity<Map<String, Object>> insertaPropietario(@RequestBody Propietario obj) {
 		Map<String, Object> salida = new HashMap<>();
