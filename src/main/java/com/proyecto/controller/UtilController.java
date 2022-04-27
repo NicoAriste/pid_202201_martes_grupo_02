@@ -15,7 +15,7 @@ import com.proyecto.service.VisitanteService;
 import com.proyecto.util.AppSettings;
 
 @RestController
-@RequestMapping("/url/util")
+@RequestMapping("/url")
 @CrossOrigin(origins = AppSettings.URL_CROSS_ORIGIN)
 
 public class UtilController {
