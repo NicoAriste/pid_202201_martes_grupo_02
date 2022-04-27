@@ -51,78 +51,7 @@ public class Usuario {
 	@JoinColumn(name = "cod_mascota")
 	private Mascota mascota;
 
-	public int getCod_usuario() {
-		return cod_usuario;
-	}
 
-	public void setCod_usuario(int cod_usuario) {
-		this.cod_usuario = cod_usuario;
-	}
-
-	public String getNom_usuario() {
-		return nom_usuario;
-	}
-
-	public void setNom_usuario(String nom_usuario) {
-		this.nom_usuario = nom_usuario;
-	}
-
-	public String getDni_usuario() {
-		return dni_usuario;
-	}
-
-	public void setDni_usuario(String dni_usuario) {
-		this.dni_usuario = dni_usuario;
-	}
-
-	public String getLogin() {
-		return login;
-	}
-
-	public void setLogin(String login) {
-		this.login = login;
-	}
-
-	public String getClave() {
-		return clave;
-	}
-
-	public void setClave(String clave) {
-		this.clave = clave;
-	}
-
-	public Date getFecha_registro_usuario() {
-		return fecha_registro_usuario;
-	}
-
-	public void setFecha_registro_usuario(Date fecha_registro_usuario) {
-		this.fecha_registro_usuario = fecha_registro_usuario;
-	}
-
-	public int getEstado() {
-		return estado;
-	}
-
-	public void setEstado(int estado) {
-		this.estado = estado;
-	}
-
-	public Departamento getDepartamento() {
-		return departamento;
-	}
-
-	public void setDepartamento(Departamento departamento) {
-		this.departamento = departamento;
-	}
-
-	public Mascota getMascota() {
-		return mascota;
-	}
-
-	public void setMascota(Mascota mascota) {
-		this.mascota = mascota;
-	}
-	
 	
 	
 }

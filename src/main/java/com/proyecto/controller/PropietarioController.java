@@ -20,7 +20,7 @@ import com.proyecto.service.PropietarioService;
 import com.proyecto.util.AppSettings;
 
 @RestController
-@RequestMapping("/url/propietario")
+@RequestMapping("/url")
 @CrossOrigin(origins = AppSettings.URL_CROSS_ORIGIN)
 
 public class PropietarioController {
@@ -28,7 +28,7 @@ public class PropietarioController {
 	@Autowired
 	private PropietarioService propietarioService;
 	
-	@GetMapping
+	@GetMapping("/listaPropietario")
 	@ResponseBody
 	public ResponseEntity<List<Propietario>> listaPropietario() {
 		List<Propietario> lista = propietarioService.listaPropietario();
